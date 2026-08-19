@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>创作 · 陈识滟 Portfolio</title>
+<meta name="description" content="陈识滟的创作集：AI 生图生视频、设计、手工、摄影与美食制作作品。产品之外，动手把想法做成看得见的东西。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo"><a href="index.html">陈识滟</a></div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="projects.html" class="nav-link">项目</a>
+      <a href="create.html" class="nav-link active">创作</a>
+      <a href="about.html" class="nav-link">关于</a>
+      <a href="contact.html" class="nav-link">联系</a>
+    </div>
+    <div class="nav-actions">
+      <a href="files/resume.pdf" download="陈识滟-简历.pdf" class="btn btn-secondary btn-sm">下载简历</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== Mobile Menu ===== -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">首页</a>
+  <a href="projects.html" class="nav-link">项目</a>
+  <a href="create.html" class="nav-link active">创作</a>
+  <a href="about.html" class="nav-link">关于</a>
+  <a href="contact.html" class="nav-link">联系</a>
+  <a href="files/resume.pdf" download="陈识滟-简历.pdf" class="btn btn-primary">下载简历</a>
+</div>
+
+<!-- ===== Page Header ===== -->
+<section class="page-header">
+  <div class="container">
+    <div class="eyebrow fade-in">创作</div>
+    <h1 class="fade-in-delay-1" style="font-size: 40px; font-weight: 600; line-height: 1.2; margin-bottom: 12px;">产品之外，我也在<em style="font-style: italic;">动手</em></h1>
+    <p class="text-secondary fade-in-delay-2" style="font-size: 16px; max-width: 560px;">
+      AI 生图生视频、设计、手工、摄影、美食——这里收着我工作之外的创作。产品经理训练的是把复杂想清楚，而这些作品，是把想法做成看得见的东西。
+    </p>
+  </div>
+</section>
+
+<!-- ===== Filter + Gallery ===== -->
+<section class="section" style="padding-top: 24px;">
+  <div class="container">
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-chip active" data-filter="all">全部</button>
+      <button class="filter-chip" data-filter="ai">AI 生图 / 生视频</button>
+      <button class="filter-chip" data-filter="design">设计作品</button>
+      <button class="filter-chip" data-filter="craft">手工作品</button>
+      <button class="filter-chip" data-filter="photo">摄影作品</button>
+      <button class="filter-chip" data-filter="food">美食制作</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+      <!-- 空状态：当前筛选分类下没有作品时显示，由 main.js 控制显隐 -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <p class="empty-title" id="emptyTitle">还没有添加作品</p>
+        <p class="empty-hint">复制下面的模板，填入图片、名称、时间和链接即可上架。</p>
+      </div>
+
+      <!--
+      ============================================================
+      ★ 添加新作品模板
+      ------------------------------------------------------------
+      步骤：
+        1. 选分类（data-category）：ai / design / craft / photo / food
+        2. 复制整段 <a ...> … </a> 或 <article>…</article>，粘贴到本注释下方
+        3. 替换：图片 src / alt、作品名称、分类名、时间、链接 href
+      ------------------------------------------------------------
+
+      有链接（打开新标签）：
+      <a class="work-card" data-category="ai" href="作品链接地址" target="_blank" rel="noopener">
+        <div class="work-frame">
+          <img src="images/create/作品文件名.jpg" alt="作品名称" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">作品名称</h3>
+          <p class="work-cat">AI 生图 / 生视频</p>
+          <p class="work-date">2026.03</p>
+        </div>
+      </a>
+
+      无链接：
+      <article class="work-card" data-category="design">
+        <div class="work-frame">
+          <img src="images/create/作品文件名.jpg" alt="作品名称" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">作品名称</h3>
+          <p class="work-cat">设计作品</p>
+          <p class="work-date">2026.03</p>
+        </div>
+      </article>
+      ============================================================
+      -->
+      <a class="work-card" data-category="ai" href="https://www.bilibili.com/video/BV18YzSBHExJ/?spm_id_from=333.1387.list.card_archive.click&vd_source=c7aabfd7f16dee308893624b0675fa1f" target="_blank" rel="noopener">
+        <div class="work-frame">
+          <img src="images/create/ai-yiduidigushi.png" alt="一堆泥的故事" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">一堆泥的故事</h3>
+          <p class="work-cat">AI 生图 / 生视频</p>
+          <p class="work-date">2026.01</p>
+        </div>
+      </a>
+      <a class="work-card" data-category="ai" href="https://www.bilibili.com/video/BV1ir8u6cEV4/?spm_id_from=333.1387.list.card_archive.click&vd_source=c7aabfd7f16dee308893624b0675fa1f" target="_blank" rel="noopener">
+        <div class="work-frame">
+          <img src="images/create/ai-aishipinlianxi.png" alt="AI视频练习" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">AI视频练习</h3>
+          <p class="work-cat">AI 生图 / 生视频</p>
+          <p class="work-date">2026.01</p>
+        </div>
+      </a>
+      <a class="work-card" data-category="ai" href="https://www.bilibili.com/video/BV1oz8u6aELV/?spm_id_from=333.1387.list.card_archive.click&vd_source=c7aabfd7f16dee308893624b0675fa1f" target="_blank" rel="noopener">
+        <div class="work-frame">
+          <img src="images/create/ai-lin.png" alt="鳞" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">鳞</h3>
+          <p class="work-cat">AI 生图 / 生视频</p>
+          <p class="work-date">2026.03</p>
+        </div>
+      </a>
+      <article class="work-card" data-category="ai" >
+        <div class="work-frame">
+          <img src="images/create/ai-huayou.jpg" alt="huayou" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">huayou</h3>
+          <p class="work-cat">AI 生图 / 生视频</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="ai" >
+        <div class="work-frame">
+          <img src="images/create/ai-logo.jpg" alt="logo" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">logo</h3>
+          <p class="work-cat">AI 生图 / 生视频</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="ai" >
+        <div class="work-frame">
+          <img src="images/create/ai-beijing.jpg" alt="背景" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">背景</h3>
+          <p class="work-cat">AI 生图 / 生视频</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="ai" >
+        <div class="work-frame">
+          <img src="images/create/ai-renwuxingxiang.jpg" alt="人物形象" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">人物形象</h3>
+          <p class="work-cat">AI 生图 / 生视频</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="ai" >
+        <div class="work-frame">
+          <img src="images/create/ai-qiulogo.png" alt="qiulogo" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">qiulogo</h3>
+          <p class="work-cat">AI 生图 / 生视频</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="ai" >
+        <div class="work-frame">
+          <img src="images/create/ai-zhenrenzhuanshou.jpg" alt="真人转宫崎骏漫画风" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">真人转宫崎骏漫画风</h3>
+          <p class="work-cat">AI 生图 / 生视频</p>
+        </div>
+      </article>
+      <a class="work-card" data-category="design" href="https://www.xiaohongshu.com/discovery/item/68d3cb16000000001201d3ac?source=webshare&xhsshare=pc_web&xsec_token=ABYOsgLqRx7IgEYwVce6JIzDq6sJ6U_3iDhJHL0Ztzxq8=&xsec_source=pc_share" target="_blank" rel="noopener">
+        <div class="work-frame">
+          <img src="images/create/design-ziyu-ar-badge.png" alt="ziyuAR吧唧" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">ziyuAR吧唧</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </a>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-ziyu-qrcode.jpg" alt="ziyu二维码" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">ziyu二维码</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-qiu-ar-card.jpg" alt="qiuAR小卡" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">qiuAR小卡</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-qiu-qrcode.jpg" alt="qiu二维码" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">qiu二维码</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-huayou.jpg" alt="huayou" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">huayou</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-qishishigehaoren.jpg" alt="其实是个好人钥匙扣" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">其实是个好人钥匙扣</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-huayou-totebag.jpg" alt="huayou手提袋" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">huayou手提袋</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-card-yidan.jpg" alt="贺卡yidan" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">贺卡yidan</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-card-jiangyuan.jpg" alt="贺卡jiangyuan" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">贺卡jiangyuan</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-qiu-scarf.jpg" alt="qiu围巾" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">qiu围巾</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-qiu-badge.jpg" alt="qiu吧唧" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">qiu吧唧</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="design" >
+        <div class="work-frame">
+          <img src="images/create/design-qiu-painting.jpg" alt="qiu绘画" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">qiu绘画</h3>
+          <p class="work-cat">设计作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-sixian-jiezhi.jpg" alt="丝线戒指" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">丝线戒指</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-balloon-hk.jpg" alt="气球hk" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">气球hk</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-balloon-cake-hk.jpg" alt="气球蛋糕hk" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">气球蛋糕hk</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-balloon-cake.jpg" alt="气球蛋糕" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">气球蛋糕</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-gouzhen-weijin.jpg" alt="钩针围巾" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">钩针围巾</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-raoxian-jiezhi.jpg" alt="绕线戒指" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">绕线戒指</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-chuanzhu-xiongzhen.jpg" alt="串珠胸针" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">串珠胸针</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-qiu-belt.jpg" alt="qiu腰链" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">qiu腰链</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-raoxian-xianglian.jpg" alt="绕线项链" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">绕线项链</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-zhuangshihua.jpg" alt="装饰画" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">装饰画</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-qiu-keychain.jpg" alt="qiu钥匙扣" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">qiu钥匙扣</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-shougong-yinbing.jpg" alt="手工银饼" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">手工银饼</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="craft" >
+        <div class="work-frame">
+          <img src="images/create/craft-shouzuo-wawa.jpg" alt="手作娃娃" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">手作娃娃</h3>
+          <p class="work-cat">手工作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="photo" >
+        <div class="work-frame">
+          <img src="images/create/photo-shouzhonghua.jpg" alt="手中花" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">手中花</h3>
+          <p class="work-cat">摄影作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="photo" >
+        <div class="work-frame">
+          <img src="images/create/photo-shengming.jpg" alt="生命" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">生命</h3>
+          <p class="work-cat">摄影作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="photo" >
+        <div class="work-frame">
+          <img src="images/create/photo-zhonglou.jpg" alt="钟楼" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">钟楼</h3>
+          <p class="work-cat">摄影作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="photo" >
+        <div class="work-frame">
+          <img src="images/create/photo-jiuzhaigou.jpg" alt="九寨沟" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">九寨沟</h3>
+          <p class="work-cat">摄影作品</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="food" >
+        <div class="work-frame">
+          <img src="images/create/food-dapaofan.jpg" alt="打抛饭" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">打抛饭</h3>
+          <p class="work-cat">美食制作</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="food" >
+        <div class="work-frame">
+          <img src="images/create/food-bifengtangxie.jpg" alt="避风塘蟹" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">避风塘蟹</h3>
+          <p class="work-cat">美食制作</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="food" >
+        <div class="work-frame">
+          <img src="images/create/food-guobaorou.jpg" alt="锅包肉" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">锅包肉</h3>
+          <p class="work-cat">美食制作</p>
+        </div>
+      </article>
+      <article class="work-card" data-category="food" >
+        <div class="work-frame">
+          <img src="images/create/food-huiguorou.jpg" alt="回锅肉" loading="lazy">
+        </div>
+        <div class="work-meta">
+          <h3 class="work-title">回锅肉</h3>
+          <p class="work-cat">美食制作</p>
+        </div>
+      </article>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="section" style="padding-top: 32px;">
+  <div class="container">
+    <div class="cta-section">
+      <h2 class="h2">想看更多，或聊聊合作？</h2>
+      <p>作品持续更新中。无论是求职沟通还是创作合作，欢迎随时联系。</p>
+      <a href="contact.html" class="btn btn-primary">联系我 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <p class="footer-text">© 2026 陈识滟　·　产品经理 Portfolio</p>
+      <div class="footer-links">
+        <a href="index.html">首页</a>
+        <a href="projects.html">项目</a>
+        <a href="create.html">创作</a>
+        <a href="contact.html">联系</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
